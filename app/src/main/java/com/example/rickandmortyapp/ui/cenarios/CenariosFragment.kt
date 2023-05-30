@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.FragmentCenariosBinding
-import com.example.rickandmortyapp.databinding.FragmentGalleryBinding
-import com.example.rickandmortyapp.ui.gallery.GalleryViewModel
 
 class CenariosFragment : Fragment() {
 
