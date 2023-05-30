@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">RickAndMortyApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="titulo_home_page">Bem-vindo ao app</string>
+    <string name="apresentacao_home_page">Este aplicativo foi desenvolvido por Guilherme Carneiro para proporcionar aos usuários uma experiência envolvente e informativa sobre a popular série Rick and Morty. Com uma interface intuitiva e recursos cuidadosamente projetados, os fãs da série poderão explorar e acessar diversas informações relacionadas a cada episódio, personagem, enredo e curiosidades. O aplicativo oferece uma forma conveniente de mergulhar no universo de Rick and Morty, permitindo que os usuários aprofundem seu conhecimento e compartilhem sua paixão por essa série icônica. Com atualizações regulares e conteúdo exclusivo, este aplicativo é um companheiro perfeito para todos os fãs de Rick and Morty.</string>
+    <string name="description_home_page">"Rick and Morty" é uma aclamada série de animação adulta que combina elementos de ficção científica, humor ácido e sátira social. Criada por Justin Roiland e Dan Harmon, a série segue as aventuras interdimensionais do brilhante, porém alcoólatra, cientista Rick Sanchez e seu neto tímido e ansioso, Morty Smith. Juntos, eles embarcam em viagens alucinantes por diferentes realidades, enfrentando criaturas extraterrestres, governos corruptos e até mesmo a natureza caótica da existência.
+
+A série é conhecida por sua narrativa inteligente e subversiva, que mistura comédia, crítica social e reflexões filosóficas. "Rick and Morty" desafia as convenções dos desenhos animados tradicionais, com seu humor irreverente, referências pop-culturais e uma abordagem não linear das histórias. A cada episódio, os espectadores são levados a aventuras bizarras e imprevisíveis, enquanto os personagens lidam com dilemas éticos, questões existenciais e os altos e baixos da dinâmica familiar.
+
+A série conquistou uma enorme base de fãs ao redor do mundo devido à sua originalidade, inteligência e capacidade de provocar risos e reflexões simultaneamente. Além disso, "Rick and Morty" também aborda temas complexos, como o significado da vida, o livre-arbítrio e a natureza da realidade, em meio a um oceano de piadas sarcásticas e situações absurdas.
+
+Com sua animação vibrante, tramas imprevisíveis e um elenco de personagens excêntricos, "Rick and Morty" oferece uma jornada cativante através do multiverso, mergulhando os espectadores em um mundo caótico e, ao mesmo tempo, profundamente fascinante. É uma série que desafia as expectativas e deixa uma marca duradoura na cultura pop.</string>
+    <string name="content_description_wallpaper">Imagem de Alta Definicao de Rick and Morty</string>
+    <string name="item_1_drawer_label">Tela Inicial</string>
+    <string name="item2_drawer_label">Personagens</string>
+    <string name="item3_drawer_label">Cenarios</string>
+</resources>

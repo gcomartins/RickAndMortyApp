@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_tela_inicial">
+
+    <fragment
+        android:id="@+id/nav_tela_inicial"
+        android:name="com.example.rickandmortyapp.ui.home.HomeFragment"
+        android:label="Tela Inicial"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_personagens"
+        android:name="com.example.rickandmortyapp.ui.personagens.PersonagensFragment"
+        android:label="Personagens"
+        tools:layout="@layout/fragment_personagens" />
+
+    <fragment
+        android:id="@+id/nav_cenarios"
+        android:name="com.example.rickandmortyapp.ui.cenarios.CenariosFragment"
+        android:label="Cenários"
+        tools:layout="@layout/fragment_cenarios" />
+</navigation>
