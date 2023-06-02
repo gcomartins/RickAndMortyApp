@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.rickandmortyapp.models.Filtros
 import com.example.rickandmortyapp.models.GetAllPersonagensResponse
 import com.example.rickandmortyapp.models.Personagem
 import com.example.rickandmortyapp.rest.Rest
@@ -23,19 +24,14 @@ class PersonagensViewModel: ViewModel() {
     val characters: LiveData<List<Personagem>> = _characters
 
     var currentPage: Int = 1
-    var filterName: String? = null
-    var filterStatus: String? = null
-    var filterSpecies: String? = null
-    var filterType: String? = null
-    var filterGender: String? = null
 
     fun getInitialCharacters() {
         val call = service.getCharacters(
-            name = filterName,
-            status = filterStatus,
-            species = filterSpecies,
-            type = filterType,
-            gender = filterGender
+            name = Filtros.name,
+            status = Filtros.status,
+            species = Filtros.species,
+            type = Filtros.type,
+            gender = Filtros.gender,
         )
         call.enqueue(object : Callback<GetAllPersonagensResponse> {
             override fun onResponse(
@@ -75,11 +71,11 @@ class PersonagensViewModel: ViewModel() {
         currentPage++
         val call = service.getCharacters(
             page=currentPage,
-            name = filterName,
-            status = filterStatus,
-            species = filterSpecies,
-            type = filterType,
-            gender = filterGender
+            name = Filtros.name,
+            status = Filtros.status,
+            species = Filtros.species,
+            type = Filtros.type,
+            gender = Filtros.gender,
         )
         call.enqueue(object : Callback<GetAllPersonagensResponse> {
             override fun onResponse(
