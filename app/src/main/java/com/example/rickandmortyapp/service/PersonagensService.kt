@@ -9,12 +9,16 @@ import retrofit2.http.Query
 interface PersonagensService {
 
     @GET("character")
-    fun getInitialCharacters(): retrofit2.Call<GetAllPersonagensResponse>
+    fun getCharacters(
+        @Query("name") name: String? = null,
+        @Query("status") status: String? = null,
+        @Query("species") species: String? = null,
+        @Query("type") type: String? = null,
+        @Query("gender") gender: String? = null,
+        @Query("page") page: Int = 1,
+    ): retrofit2.Call<GetAllPersonagensResponse>
 
     @GET("character/{id}")
     fun getCharacterById(@Path("id") id: Int): retrofit2.Call<Personagem>
-
-    @GET("/api/character")
-    fun getMoreCharacters(@Query("page") page: Int): retrofit2.Call<GetAllPersonagensResponse>
 
 }

@@ -22,10 +22,21 @@ class PersonagensViewModel: ViewModel() {
     var character: LiveData<Personagem> = _character
     val characters: LiveData<List<Personagem>> = _characters
 
-    var currentPage = 1
+    var currentPage: Int = 1
+    var filterName: String? = null
+    var filterStatus: String? = null
+    var filterSpecies: String? = null
+    var filterType: String? = null
+    var filterGender: String? = null
 
     fun getInitialCharacters() {
-        val call = service.getInitialCharacters()
+        val call = service.getCharacters(
+            name = filterName,
+            status = filterStatus,
+            species = filterSpecies,
+            type = filterType,
+            gender = filterGender
+        )
         call.enqueue(object : Callback<GetAllPersonagensResponse> {
             override fun onResponse(
                 call: Call<GetAllPersonagensResponse>,
@@ -33,8 +44,6 @@ class PersonagensViewModel: ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     _characters.value = response.body()?.results
-
-                    print(characters.value)
                 }
             }
 
@@ -45,7 +54,6 @@ class PersonagensViewModel: ViewModel() {
     }
 
     fun getCharacterById(id: Int){
-
         val call = service.getCharacterById(id)
         call.enqueue(object : Callback<Personagem> {
             override fun onResponse(
@@ -65,7 +73,14 @@ class PersonagensViewModel: ViewModel() {
 
     fun getMoreCharacters(){
         currentPage++
-        val call = service.getMoreCharacters(currentPage)
+        val call = service.getCharacters(
+            page=currentPage,
+            name = filterName,
+            status = filterStatus,
+            species = filterSpecies,
+            type = filterType,
+            gender = filterGender
+        )
         call.enqueue(object : Callback<GetAllPersonagensResponse> {
             override fun onResponse(
                 call: Call<GetAllPersonagensResponse>,
