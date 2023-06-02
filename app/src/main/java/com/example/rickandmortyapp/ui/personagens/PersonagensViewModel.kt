@@ -26,12 +26,14 @@ class PersonagensViewModel: ViewModel() {
     var currentPage: Int = 1
 
     fun getInitialCharacters() {
+        currentPage = 1
+
         val call = service.getCharacters(
-            name = Filtros.name,
-            status = Filtros.status,
-            species = Filtros.species,
-            type = Filtros.type,
-            gender = Filtros.gender,
+            name = Filtros.name.value,
+            status = Filtros.status.value,
+            species = Filtros.species.value,
+            type = Filtros.type.value,
+            gender = Filtros.gender.value,
         )
         call.enqueue(object : Callback<GetAllPersonagensResponse> {
             override fun onResponse(
@@ -71,11 +73,11 @@ class PersonagensViewModel: ViewModel() {
         currentPage++
         val call = service.getCharacters(
             page=currentPage,
-            name = Filtros.name,
-            status = Filtros.status,
-            species = Filtros.species,
-            type = Filtros.type,
-            gender = Filtros.gender,
+            name = Filtros.name.value,
+            status = Filtros.status.value,
+            species = Filtros.species.value,
+            type = Filtros.type.value,
+            gender = Filtros.gender.value,
         )
         call.enqueue(object : Callback<GetAllPersonagensResponse> {
             override fun onResponse(
@@ -84,8 +86,6 @@ class PersonagensViewModel: ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     _characters.value = response.body()?.results
-
-                    print(characters.value)
                 }
             }
 

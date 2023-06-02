@@ -1,13 +1,15 @@
 package com.example.rickandmortyapp.models
 
- class Filtros(
+import androidx.lifecycle.MutableLiveData
+
+class Filtros(
 
 ){
      companion object {
-         var name: String? = null
-         var status: String? = null
-         var species: String? = null
-         var type: String? = null
-         var gender: String? = null
+         var name: MutableLiveData<String?> = MutableLiveData(null)
+         var status: MutableLiveData<String?> = MutableLiveData(null)
+         var species: MutableLiveData<String?> = MutableLiveData(null)
+         var type: MutableLiveData<String?> = MutableLiveData(null)
+         var gender: MutableLiveData<String?> = MutableLiveData(null)
      }
  }

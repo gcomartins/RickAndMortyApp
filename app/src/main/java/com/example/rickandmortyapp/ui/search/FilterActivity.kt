@@ -39,6 +39,20 @@ class FilterActivity : AppCompatActivity() {
         checkboxGenderUnknown = findViewById(R.id.checkbox_gender_unknown)
         button = findViewById(R.id.button_filter)
 
+        // Inicializar os valores das views com base nos valores das variáveis da classe Filtros
+        inputName.setText(Filtros.name.value)
+        inputSpecies.setText(Filtros.species.value)
+        inputType.setText(Filtros.type.value)
+        checkboxAlive.isChecked = Filtros.status.value == "alive"
+        checkboxDead.isChecked = Filtros.status.value == "dead"
+        checkboxUnknown.isChecked = Filtros.status.value == "unknown"
+        checkboxFemale.isChecked = Filtros.gender.value == "female"
+        checkboxMale.isChecked = Filtros.gender.value == "male"
+        checkboxGenderless.isChecked = Filtros.gender.value == "genderless"
+        checkboxGenderUnknown.isChecked = Filtros.gender.value == "unknown"
+
+        setCheckboxOnClickListeners()
+
         button.setOnClickListener {
             applyFilters(it)
         }
@@ -46,11 +60,11 @@ class FilterActivity : AppCompatActivity() {
 
     fun applyFilters(view: View) {
         // Atualizar os valores das variáveis da classe Filtros com base nos inputs do usuário
-        Filtros.name = inputName.text.toString()
-        Filtros.status = getStatusFilter()
-        Filtros.species = inputSpecies.text.toString()
-        Filtros.type = inputType.text.toString()
-        Filtros.gender = getGenderFilter()
+        Filtros.name.value = inputName.text.toString()
+        Filtros.status.value = getStatusFilter()
+        Filtros.species.value = inputSpecies.text.toString()
+        Filtros.type.value = inputType.text.toString()
+        Filtros.gender.value = getGenderFilter()
 
         // Realizar a ação desejada com os filtros aplicados, por exemplo, retornar para a atividade anterior
         onBackPressed()
@@ -72,6 +86,61 @@ class FilterActivity : AppCompatActivity() {
             checkboxGenderless.isChecked -> "genderless"
             checkboxGenderUnknown.isChecked -> "unknown"
             else -> null
+        }
+    }
+
+    fun setCheckboxOnClickListeners(){
+        checkboxAlive.setOnClickListener {
+            if (checkboxAlive.isChecked) {
+                checkboxDead.isChecked = false
+                checkboxUnknown.isChecked = false
+            }
+        }
+
+        checkboxDead.setOnClickListener {
+            if (checkboxDead.isChecked) {
+                checkboxAlive.isChecked = false
+                checkboxUnknown.isChecked = false
+            }
+        }
+
+        checkboxUnknown.setOnClickListener {
+            if (checkboxUnknown.isChecked) {
+                checkboxAlive.isChecked = false
+                checkboxDead.isChecked = false
+            }
+        }
+
+        checkboxFemale.setOnClickListener {
+            if (checkboxFemale.isChecked) {
+                checkboxMale.isChecked = false
+                checkboxGenderless.isChecked = false
+                checkboxGenderUnknown.isChecked = false
+            }
+        }
+
+        checkboxMale.setOnClickListener {
+            if (checkboxMale.isChecked) {
+                checkboxFemale.isChecked = false
+                checkboxGenderless.isChecked = false
+                checkboxGenderUnknown.isChecked = false
+            }
+        }
+
+        checkboxGenderless.setOnClickListener {
+            if (checkboxGenderless.isChecked) {
+                checkboxFemale.isChecked = false
+                checkboxMale.isChecked = false
+                checkboxGenderUnknown.isChecked = false
+            }
+        }
+
+        checkboxGenderUnknown.setOnClickListener {
+            if (checkboxGenderUnknown.isChecked) {
+                checkboxFemale.isChecked = false
+                checkboxMale.isChecked = false
+                checkboxGenderless.isChecked = false
+            }
         }
     }
 

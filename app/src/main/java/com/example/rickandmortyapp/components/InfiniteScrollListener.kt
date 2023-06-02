@@ -3,7 +3,10 @@ package com.example.rickandmortyapp.components
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class InfiniteScrollListener(private val layoutManager: LinearLayoutManager, private val callback: () -> Unit) : RecyclerView.OnScrollListener() {
+class InfiniteScrollListener(
+    private val layoutManager: LinearLayoutManager,
+    private val callback: () -> Unit
+) : RecyclerView.OnScrollListener() {
 
     private var isLoading = false
 
