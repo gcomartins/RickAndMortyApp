@@ -21,11 +21,13 @@ class PersonagemExpandidoActivity : AppCompatActivity() {
         val imagePersonagem = findViewById<ImageView>(R.id.imgPersonagem)
         val tvNomePersonagem = findViewById<TextView>(R.id.tvNomePersonagem)
 
-        viewModel.character.observe(this){
-            tvNomePersonagem.text = it.name
+        viewModel.character.observe(this){personagem ->
+            print(personagem)
+
+            tvNomePersonagem.text = personagem.name
 
             Picasso.get()
-                .load(it.image)
+                .load(personagem.image)
                 .into(imagePersonagem)
         }
     }

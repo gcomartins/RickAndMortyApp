@@ -22,8 +22,10 @@ class PersonagensViewModel: ViewModel() {
     var character: LiveData<Personagem> = _character
     val characters: LiveData<List<Personagem>> = _characters
 
-    fun getAllCharacters() {
-        val call = service.getAllUsers()
+    var currentPage = 1
+
+    fun getInitialCharacters() {
+        val call = service.getInitialCharacters()
         call.enqueue(object : Callback<GetAllPersonagensResponse> {
             override fun onResponse(
                 call: Call<GetAllPersonagensResponse>,
@@ -56,6 +58,27 @@ class PersonagensViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<Personagem>, t: Throwable) {
+                Log.e("PersonagemService   ", "Erro ao buscar o personagem:" + t.message)
+            }
+        })
+    }
+
+    fun getMoreCharacters(){
+        currentPage++
+        val call = service.getMoreCharacters(currentPage)
+        call.enqueue(object : Callback<GetAllPersonagensResponse> {
+            override fun onResponse(
+                call: Call<GetAllPersonagensResponse>,
+                response: Response<GetAllPersonagensResponse>
+            ) {
+                if (response.isSuccessful) {
+                    _characters.value = response.body()?.results
+
+                    print(characters.value)
+                }
+            }
+
+            override fun onFailure(call: Call<GetAllPersonagensResponse>, t: Throwable) {
                 Log.e("PersonagemService   ", "Erro ao buscar o personagem:" + t.message)
             }
         })

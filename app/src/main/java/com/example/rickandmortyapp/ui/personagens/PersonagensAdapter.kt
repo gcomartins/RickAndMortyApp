@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso
 
 class PersonagensAdapter(
     val context: Context,
-    val personagens: List<Personagem>
+    var personagens: List<Personagem>
     ):
     RecyclerView.Adapter<PersonagensAdapter.PersonagensViewHolder>() {
 
@@ -62,5 +62,11 @@ class PersonagensAdapter(
     override fun onBindViewHolder(holder: PersonagensViewHolder, position: Int) {
         val personagem = personagens[position]
         holder.bind(personagem)
+    }
+
+    fun setData(newCharacters: List<Personagem>) {
+        val oldSize = personagens.size
+        personagens = personagens + newCharacters
+        notifyItemRangeInserted(oldSize, newCharacters.size)
     }
 }
