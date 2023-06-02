@@ -1,34 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    >
 
-    <ImageView
-        android:id="@+id/imgPersonagem"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPersonagem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_launcher_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/txtNomePersonagem"
-        />
-
-    <TextView
-        android:id="@+id/txtNomePersonagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Nome do Personagem"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imgPersonagem"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:cardCornerRadius="8dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
+        <ImageView
+            android:id="@+id/imgPersonagem"
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="8"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txtNomePersonagem"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/txtNomePersonagem"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:text="Nome do Personagem"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgPersonagem"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/txtNomePersonagem"
+            app:layout_constraintStart_toEndOf="@id/imgPersonagem"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/txtNomePersonagem"
+            app:layout_constraintStart_toEndOf="@id/txtStatus"
+            android:paddingHorizontal="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtEspecie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Especie"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/txtNomePersonagem"
+            app:layout_constraintStart_toEndOf="@id/divider"
+            />
+
+        <TextView
+            android:id="@+id/locationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Last known location:"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/txtStatus"
+            app:layout_constraintStart_toEndOf="@id/imgPersonagem"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Earth"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/locationLabel"
+            app:layout_constraintStart_toEndOf="@id/imgPersonagem"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/firstLocationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="First seen in:"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/txtLocation"
+            app:layout_constraintStart_toEndOf="@id/imgPersonagem"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtFirstLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Earth"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/firstLocationLabel"
+            app:layout_constraintStart_toEndOf="@id/imgPersonagem"
+            android:layout_marginStart="8dp"
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
