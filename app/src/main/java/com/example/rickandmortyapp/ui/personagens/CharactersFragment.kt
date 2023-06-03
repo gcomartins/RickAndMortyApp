@@ -60,27 +60,20 @@ class CharactersFragment : Fragment() {
         initFiltrosObservers()
     }
 
-    private fun initFiltrosObservers(){
-        Filtros.name.observe(viewLifecycleOwner){
-            reloadPage(it)
-        }
+    private fun initFiltrosObservers() {
+        val filtros = listOf(
+            Filtros.name,
+            Filtros.gender,
+            Filtros.type,
+            Filtros.status,
+            Filtros.species
+        )
 
-        Filtros.gender.observe(viewLifecycleOwner){
-            reloadPage(it)
-        }
-
-        Filtros.type.observe(viewLifecycleOwner){
-            reloadPage(it)
-        }
-
-        Filtros.status.observe(viewLifecycleOwner){
-            reloadPage(it)
-        }
-
-        Filtros.species.observe(viewLifecycleOwner){
-            reloadPage(it)
+        filtros.forEach { filtro ->
+            filtro.observe(viewLifecycleOwner) { reloadPage(it) }
         }
     }
+
 
     private fun reloadPage(data: String?) {
         if (!data.isNullOrBlank()) {
