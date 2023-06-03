@@ -31,7 +31,7 @@ class FilterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter2)
 
-        viewModel = ViewModelProvider(this).get(FilterViewModel::class.java)
+        viewModel = FilterViewModel(this)
 
         // Inicializar as views do layout
         inputName = findViewById(R.id.input_name)
