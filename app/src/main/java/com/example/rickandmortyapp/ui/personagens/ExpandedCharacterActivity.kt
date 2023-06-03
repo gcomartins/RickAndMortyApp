@@ -5,30 +5,49 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.rickandmortyapp.R
+import com.example.rickandmortyapp.databinding.ActivityPersonagemExpandidoBinding
+import com.example.rickandmortyapp.databinding.FragmentHomeBinding
 import com.squareup.picasso.Picasso
 
 class ExpandedCharacterActivity : AppCompatActivity() {
+
+    private var _binding: ActivityPersonagemExpandidoBinding? = null
+
+    private val binding get() = _binding!!
 
     private var viewModel: CharactersViewModel = CharactersViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_personagem_expandido)
+        _binding = ActivityPersonagemExpandidoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val id = intent.getIntExtra("id", 0)
         viewModel.getCharacterById(id)
 
-        val imagePersonagem = findViewById<ImageView>(R.id.imgPersonagem)
-        val tvNomePersonagem = findViewById<TextView>(R.id.tvNomePersonagem)
+        val imagePersonagem = binding.imgPersonagem
+        val tvIdPersonagem = binding.tvIdPersonagem
+        val tvNomePersonagem = binding.tvNomePersonagem
+        val tvStatusPersonagem = binding.tvStatusPersonagem
+        val tvGenderPersonagem = binding.tvGenderPersonagem
+        val tvSpeciePersonagem = binding.tvSpeciePersonagem
+        val tvCreatedAtPersonagem = binding.tvCreatedAtPersonagem
+        val tvNomeOrigemPersonagem = binding.tvOriginPersonagem
+        val tvLocalizacaoPersonagem = binding.tvLocationPersonagem
 
         viewModel.character.observe(this){personagem ->
-            print(personagem)
-
-            tvNomePersonagem.text = personagem.name
-
             Picasso.get()
                 .load(personagem.image)
                 .into(imagePersonagem)
+
+            tvIdPersonagem.text = personagem.id.toString()
+            tvNomePersonagem.text = personagem.name
+            tvStatusPersonagem.text = personagem.status
+            tvGenderPersonagem.text = personagem.gender
+            tvSpeciePersonagem.text = personagem.species
+            tvCreatedAtPersonagem.text = personagem.created
+            tvNomeOrigemPersonagem.text = personagem.origin.name
+            tvLocalizacaoPersonagem.text = personagem.location.name
         }
     }
 }
