@@ -58,7 +58,7 @@ class FilterActivity : AppCompatActivity() {
         }
     }
 
-    fun applyFilters(view: View) {
+    private fun applyFilters(view: View) {
         // Atualizar os valores das variáveis da classe Filtros com base nos inputs do usuário
         Filtros.name.value = inputName.text.toString()
         Filtros.status.value = getStatusFilter()
@@ -66,7 +66,7 @@ class FilterActivity : AppCompatActivity() {
         Filtros.type.value = inputType.text.toString()
         Filtros.gender.value = getGenderFilter()
 
-        // Realizar a ação desejada com os filtros aplicados, por exemplo, retornar para a atividade anterior
+        // Volta pra ultima Activity
         onBackPressed()
     }
 
