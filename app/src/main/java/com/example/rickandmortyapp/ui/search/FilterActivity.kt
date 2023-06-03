@@ -6,25 +6,32 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.models.Filtros
+import com.example.rickandmortyapp.ui.personagens.CharactersViewModel
 
 class FilterActivity : AppCompatActivity() {
-    private lateinit var inputName: EditText
-    private lateinit var checkboxAlive: CheckBox
-    private lateinit var checkboxDead: CheckBox
-    private lateinit var checkboxUnknown: CheckBox
-    private lateinit var inputSpecies: EditText
-    private lateinit var inputType: EditText
-    private lateinit var checkboxFemale: CheckBox
-    private lateinit var checkboxMale: CheckBox
-    private lateinit var checkboxGenderless: CheckBox
-    private lateinit var checkboxGenderUnknown: CheckBox
-    private lateinit var button: Button
+
+    private lateinit var viewModel: FilterViewModel
+
+    lateinit var inputName: EditText
+    lateinit var checkboxAlive: CheckBox
+    lateinit var checkboxDead: CheckBox
+    lateinit var checkboxUnknown: CheckBox
+    lateinit var inputSpecies: EditText
+    lateinit var inputType: EditText
+    lateinit var checkboxFemale: CheckBox
+    lateinit var checkboxMale: CheckBox
+    lateinit var checkboxGenderless: CheckBox
+    lateinit var checkboxGenderUnknown: CheckBox
+    lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter2)
+
+        viewModel = ViewModelProvider(this).get(FilterViewModel::class.java)
 
         // Inicializar as views do layout
         inputName = findViewById(R.id.input_name)
@@ -54,42 +61,21 @@ class FilterActivity : AppCompatActivity() {
         setCheckboxOnClickListeners()
 
         button.setOnClickListener {
-            applyFilters(it)
+            viewModel.applyFilters()
+
+            // Volta pra ultima Activity
+            onBackPressed()
         }
     }
 
-    private fun applyFilters(view: View) {
-        // Atualizar os valores das variáveis da classe Filtros com base nos inputs do usuário
-        Filtros.name.value = inputName.text.toString()
-        Filtros.status.value = getStatusFilter()
-        Filtros.species.value = inputSpecies.text.toString()
-        Filtros.type.value = inputType.text.toString()
-        Filtros.gender.value = getGenderFilter()
+    private fun setCheckboxOnClickListeners(){
 
-        // Volta pra ultima Activity
-        onBackPressed()
+        setCheckboxStatusListeners()
+
+        setCheckboxGenderListeners()
     }
 
-    private fun getStatusFilter(): String? {
-        return when {
-            checkboxAlive.isChecked -> "alive"
-            checkboxDead.isChecked -> "dead"
-            checkboxUnknown.isChecked -> "unknown"
-            else -> null
-        }
-    }
-
-    private fun getGenderFilter(): String? {
-        return when {
-            checkboxFemale.isChecked -> "female"
-            checkboxMale.isChecked -> "male"
-            checkboxGenderless.isChecked -> "genderless"
-            checkboxGenderUnknown.isChecked -> "unknown"
-            else -> null
-        }
-    }
-
-    fun setCheckboxOnClickListeners(){
+    private fun setCheckboxStatusListeners(){
         checkboxAlive.setOnClickListener {
             if (checkboxAlive.isChecked) {
                 checkboxDead.isChecked = false
@@ -110,7 +96,9 @@ class FilterActivity : AppCompatActivity() {
                 checkboxDead.isChecked = false
             }
         }
+    }
 
+    private fun setCheckboxGenderListeners(){
         checkboxFemale.setOnClickListener {
             if (checkboxFemale.isChecked) {
                 checkboxMale.isChecked = false
