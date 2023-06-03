@@ -30,6 +30,8 @@ class CharactersFragment : Fragment() {
         _binding = FragmentPersonagensBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        viewModel = ViewModelProvider(this).get(CharactersViewModel::class.java)
+
         recyclerView = binding.rvPersonagens
         val layoutManager = LinearLayoutManager(requireContext())
         recyclerView.layoutManager = layoutManager
@@ -47,7 +49,7 @@ class CharactersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CharactersViewModel::class.java)
+
         viewModel.characters.observe(viewLifecycleOwner) { characters ->
             adapter.setData(characters)
             infiniteScrollListener.setLoading(false)
