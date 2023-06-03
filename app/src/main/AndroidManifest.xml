@@ -20,7 +20,7 @@
             android:name=".ui.search.FilterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.personagens.PersonagemExpandidoActivity"
+            android:name=".ui.personagens.ExpandedCharacterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

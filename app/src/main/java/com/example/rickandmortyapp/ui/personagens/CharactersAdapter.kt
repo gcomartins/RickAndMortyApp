@@ -13,11 +13,11 @@ import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.models.Personagem
 import com.squareup.picasso.Picasso
 
-class PersonagensAdapter(
+class CharactersAdapter(
     val context: Context,
     var personagens: List<Personagem>
     ):
-    RecyclerView.Adapter<PersonagensAdapter.PersonagensViewHolder>() {
+    RecyclerView.Adapter<CharactersAdapter.PersonagensViewHolder>() {
 
     inner class PersonagensViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun bind(personagem: Personagem){
@@ -41,7 +41,7 @@ class PersonagensAdapter(
                 .into(ImagePersonagem)
 
             card.setOnClickListener{
-                val intent = Intent(context, PersonagemExpandidoActivity::class.java)
+                val intent = Intent(context, ExpandedCharacterActivity::class.java)
 
                 intent.putExtra("image", personagem.image)
                 intent.putExtra("nome", personagem.name)
@@ -68,5 +68,10 @@ class PersonagensAdapter(
         val oldSize = personagens.size
         personagens = personagens + newCharacters
         notifyItemRangeInserted(oldSize, newCharacters.size)
+    }
+
+    fun clearCharactersList(){
+        personagens = emptyList()
+        notifyDataSetChanged()
     }
 }

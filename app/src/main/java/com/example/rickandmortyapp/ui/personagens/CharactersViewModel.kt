@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PersonagensViewModel: ViewModel() {
+class CharactersViewModel: ViewModel() {
     private val retrofit = Rest.getInstance()
     val service = retrofit.create(PersonagensService::class.java)
 

@@ -10,16 +10,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.components.InfiniteScrollListener
 import com.example.rickandmortyapp.databinding.FragmentPersonagensBinding
+import com.example.rickandmortyapp.models.Filtros
 
-class PersonagensFragment : Fragment() {
+class CharactersFragment : Fragment() {
 
     private var _binding: FragmentPersonagensBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: PersonagensViewModel
+    private lateinit var viewModel: CharactersViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var infiniteScrollListener: InfiniteScrollListener
-    private lateinit var adapter: PersonagensAdapter
+    private lateinit var adapter: CharactersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +34,7 @@ class PersonagensFragment : Fragment() {
         val layoutManager = LinearLayoutManager(requireContext())
         recyclerView.layoutManager = layoutManager
 
-        adapter = PersonagensAdapter(requireContext(), emptyList())
+        adapter = CharactersAdapter(requireContext(), emptyList())
         recyclerView.adapter = adapter
 
         infiniteScrollListener = InfiniteScrollListener(layoutManager) {
@@ -46,17 +47,44 @@ class PersonagensFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PersonagensViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(CharactersViewModel::class.java)
         viewModel.characters.observe(viewLifecycleOwner) { characters ->
             adapter.setData(characters)
             infiniteScrollListener.setLoading(false)
         }
 
         viewModel.getInitialCharacters()
+
+        initFiltrosObservers()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun initFiltrosObservers(){
+        Filtros.name.observe(viewLifecycleOwner){
+            reloadPage(it)
+        }
+
+        Filtros.gender.observe(viewLifecycleOwner){
+            reloadPage(it)
+        }
+
+        Filtros.type.observe(viewLifecycleOwner){
+            reloadPage(it)
+        }
+
+        Filtros.status.observe(viewLifecycleOwner){
+            reloadPage(it)
+        }
+
+        Filtros.species.observe(viewLifecycleOwner){
+            reloadPage(it)
+        }
     }
+
+    private fun reloadPage(data: String?) {
+        if (!data.isNullOrBlank()) {
+            adapter.clearCharactersList()
+            viewModel.getInitialCharacters()
+        }
+    }
+
 }

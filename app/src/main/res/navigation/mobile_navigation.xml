@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_personagens"
-        android:name="com.example.rickandmortyapp.ui.personagens.PersonagensFragment"
+        android:name="com.example.rickandmortyapp.ui.personagens.CharactersFragment"
         android:label="Personagens"
         tools:layout="@layout/fragment_personagens" />
 

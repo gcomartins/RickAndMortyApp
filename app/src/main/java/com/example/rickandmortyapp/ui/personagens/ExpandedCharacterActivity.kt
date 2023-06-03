@@ -7,9 +7,9 @@ import android.widget.TextView
 import com.example.rickandmortyapp.R
 import com.squareup.picasso.Picasso
 
-class PersonagemExpandidoActivity : AppCompatActivity() {
+class ExpandedCharacterActivity : AppCompatActivity() {
 
-    private var viewModel: PersonagensViewModel = PersonagensViewModel()
+    private var viewModel: CharactersViewModel = CharactersViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
