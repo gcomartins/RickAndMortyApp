@@ -11,5 +11,6 @@ class Filtros(
          var species: MutableLiveData<String?> = MutableLiveData(null)
          var type: MutableLiveData<String?> = MutableLiveData(null)
          var gender: MutableLiveData<String?> = MutableLiveData(null)
+         var hasFilters: MutableLiveData<Boolean> = MutableLiveData(false)
      }
  }

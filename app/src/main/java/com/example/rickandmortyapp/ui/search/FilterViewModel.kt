@@ -14,6 +14,7 @@ class FilterViewModel(
         Filtros.species.value = activity.inputSpecies.text.toString()
         Filtros.type.value = activity.inputType.text.toString()
         Filtros.gender.value = getGenderFilter()
+        Filtros.hasFilters.value = checkHasFilters()
     }
 
     fun getStatusFilter(): String? {
@@ -34,4 +35,17 @@ class FilterViewModel(
             else -> null
         }
     }
+
+    private fun checkHasFilters(): Boolean {
+        val response = listOf(
+            Filtros.name.value,
+            Filtros.status.value,
+            Filtros.species.value,
+            Filtros.type.value,
+            Filtros.gender.value
+        ).any { !it.isNullOrBlank() }
+
+        return response
+    }
+
 }
