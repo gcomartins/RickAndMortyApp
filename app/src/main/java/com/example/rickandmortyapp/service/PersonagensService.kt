@@ -1,7 +1,7 @@
 package com.example.rickandmortyapp.service
 
-import com.example.rickandmortyapp.models.GetAllPersonagensResponse
-import com.example.rickandmortyapp.models.Personagem
+import com.example.rickandmortyapp.ui.personagens.model.GetAllPersonagensResponse
+import com.example.rickandmortyapp.ui.personagens.model.Personagem
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

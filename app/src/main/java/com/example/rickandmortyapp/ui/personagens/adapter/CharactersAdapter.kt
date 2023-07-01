@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.ui.personagens
+package com.example.rickandmortyapp.ui.personagens.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,8 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
-import com.example.rickandmortyapp.models.Personagem
+import com.example.rickandmortyapp.ui.personagens.model.Personagem
+import com.example.rickandmortyapp.ui.personagens.view.ExpandedCharacterActivity
 import com.squareup.picasso.Picasso
 
 class CharactersAdapter(

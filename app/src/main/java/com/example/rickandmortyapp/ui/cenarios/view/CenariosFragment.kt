@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.ui.cenarios
+package com.example.rickandmortyapp.ui.cenarios.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.rickandmortyapp.databinding.FragmentCenariosBinding
+import com.example.rickandmortyapp.ui.cenarios.view_model.CenariosViewModel
 
 class CenariosFragment : Fragment() {
 

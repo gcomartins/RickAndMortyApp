@@ -1,17 +1,18 @@
-package com.example.rickandmortyapp.ui.personagens
+package com.example.rickandmortyapp.ui.personagens.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.components.InfiniteScrollListener
 import com.example.rickandmortyapp.databinding.FragmentPersonagensBinding
-import com.example.rickandmortyapp.models.Filtros
+import com.example.rickandmortyapp.ui.search.Filtros
+import com.example.rickandmortyapp.ui.personagens.adapter.CharactersAdapter
+import com.example.rickandmortyapp.ui.personagens.view_model.CharactersViewModel
 
 class CharactersFragment : Fragment() {
 

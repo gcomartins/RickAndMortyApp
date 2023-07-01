@@ -2,8 +2,6 @@ package com.example.rickandmortyapp
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,9 +10,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.PopupMenu
 import com.example.rickandmortyapp.databinding.ActivityMainBinding
-import com.example.rickandmortyapp.ui.search.FilterActivity
+import com.example.rickandmortyapp.ui.search.view.FilterActivity
 
 class MainActivity : AppCompatActivity() {
 

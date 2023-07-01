@@ -1,15 +1,13 @@
-package com.example.rickandmortyapp.ui.search
+package com.example.rickandmortyapp.ui.search.view
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.rickandmortyapp.R
-import com.example.rickandmortyapp.models.Filtros
-import com.example.rickandmortyapp.ui.personagens.CharactersViewModel
+import com.example.rickandmortyapp.ui.search.view_model.FilterViewModel
+import com.example.rickandmortyapp.ui.search.Filtros
 
 class FilterActivity : AppCompatActivity() {
 

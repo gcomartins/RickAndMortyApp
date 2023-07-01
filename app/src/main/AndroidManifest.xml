@@ -17,10 +17,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.search.FilterActivity"
+            android:name=".ui.search.view.FilterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.personagens.ExpandedCharacterActivity"
+            android:name=".ui.personagens.view.ExpandedCharacterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

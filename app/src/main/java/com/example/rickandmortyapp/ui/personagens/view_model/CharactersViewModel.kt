@@ -1,12 +1,12 @@
-package com.example.rickandmortyapp.ui.personagens
+package com.example.rickandmortyapp.ui.personagens.view_model
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rickandmortyapp.models.Filtros
-import com.example.rickandmortyapp.models.GetAllPersonagensResponse
-import com.example.rickandmortyapp.models.Personagem
+import com.example.rickandmortyapp.ui.search.Filtros
+import com.example.rickandmortyapp.ui.personagens.model.GetAllPersonagensResponse
+import com.example.rickandmortyapp.ui.personagens.model.Personagem
 import com.example.rickandmortyapp.rest.Rest
 import com.example.rickandmortyapp.service.PersonagensService
 import retrofit2.Call

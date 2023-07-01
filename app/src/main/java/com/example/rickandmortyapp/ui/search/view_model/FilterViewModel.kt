@@ -1,8 +1,8 @@
-package com.example.rickandmortyapp.ui.search
+package com.example.rickandmortyapp.ui.search.view_model
 
-import android.view.View
 import androidx.lifecycle.ViewModel
-import com.example.rickandmortyapp.models.Filtros
+import com.example.rickandmortyapp.ui.search.Filtros
+import com.example.rickandmortyapp.ui.search.view.FilterActivity
 
 class FilterViewModel(
     val activity: FilterActivity,

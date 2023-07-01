@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.ui.cenarios
+package com.example.rickandmortyapp.ui.cenarios.view_model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

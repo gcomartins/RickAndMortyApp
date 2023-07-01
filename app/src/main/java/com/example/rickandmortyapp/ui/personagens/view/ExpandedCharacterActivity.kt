@@ -1,12 +1,9 @@
-package com.example.rickandmortyapp.ui.personagens
+package com.example.rickandmortyapp.ui.personagens.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.ActivityPersonagemExpandidoBinding
-import com.example.rickandmortyapp.databinding.FragmentHomeBinding
+import com.example.rickandmortyapp.ui.personagens.view_model.CharactersViewModel
 import com.squareup.picasso.Picasso
 
 class ExpandedCharacterActivity : AppCompatActivity() {

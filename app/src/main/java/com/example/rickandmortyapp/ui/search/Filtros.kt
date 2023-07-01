@@ -1,4 +1,4 @@
-package com.example.rickandmortyapp.models
+package com.example.rickandmortyapp.ui.search
 
 import androidx.lifecycle.MutableLiveData
 
