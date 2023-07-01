@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.rickandmortyapp.databinding.ActivityPersonagemExpandidoBinding
 import com.example.rickandmortyapp.ui.personagens.view_model.CharactersViewModel
+import com.example.rickandmortyapp.ui.personagens.view_model.ExpandedCharactersViewModel
 import com.squareup.picasso.Picasso
 
 class ExpandedCharacterActivity : AppCompatActivity() {
@@ -12,7 +13,7 @@ class ExpandedCharacterActivity : AppCompatActivity() {
 
     private val binding get() = _binding!!
 
-    private var viewModel: CharactersViewModel = CharactersViewModel()
+    private var viewModel: ExpandedCharactersViewModel = ExpandedCharactersViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
